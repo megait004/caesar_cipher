@@ -25,6 +25,10 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt  # Cài đặt các dependencies từ requirements.txt
+        pip install pyinstaller  # Cài đặt PyInstaller
+
+    - name: Check PyInstaller version
+      run: pyinstaller --version  # Kiểm tra phiên bản PyInstaller để đảm bảo cài đặt thành công
 
     - name: Build EXE
       run: pyinstaller --onefile --windowed --add-data "templates;templates" --add-data "static;static" app.py
