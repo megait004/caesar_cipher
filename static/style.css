@@ -1,0 +1,174 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #1d1b31, #3a3a52, #282c34);
+    background-size: 400% 400%;
+    animation: gradient-animation 15s ease infinite;
+    color: #ffd700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@keyframes gradient-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 1), 0 0 100px rgba(255, 215, 0, 0.6);
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    border: 2px solid rgba(255, 215, 0, 0.8);
+    animation: fade-slide-in 1s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes fade-slide-in {
+    0% { transform: translateY(20px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+h1 {
+    color: #ffd700;
+    font-size: 42px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: text-glow 3s ease-in-out infinite alternate;
+}
+
+@keyframes text-glow {
+    from { text-shadow: 0 0 20px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4); }
+    to { text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 40px rgba(255, 215, 0, 0.8); }
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 18px;
+    color: #ffdd75;
+    display: block;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+textarea, input[type="number"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    color: #ffd700;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+textarea::placeholder, input[type="number"]::placeholder {
+    color: #ffdd75;
+    opacity: 0.7;
+}
+
+textarea:focus, input[type="number"]:focus {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.5);
+    border-color: #ffb700;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    width: 48%;
+    padding: 15px;
+    background: linear-gradient(45deg, #ffd700, #ff8c00);
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: skewX(-45deg);
+    transition: all 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 50px rgba(255, 215, 0, 1);
+    animation: button-glow 1s infinite alternate;
+}
+
+@keyframes button-glow {
+    0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.6); }
+    100% { box-shadow: 0 0 50px rgba(255, 215, 0, 1); }
+}
+
+#encoded-text, #decoded-text {
+    font-size: 22px;
+    color: #ffd700;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    border: 1px solid rgba(255, 215, 0, 0.8);
+    animation: text-fade-in 1.5s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes text-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+textarea#description-text {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffd700;
+    border: 1px solid rgba(255, 215, 0, 0.8);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    backdrop-filter: blur(8px);
+    animation: text-fade-in 2s ease-out forwards;
+    opacity: 0;
+}
