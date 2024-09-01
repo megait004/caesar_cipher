@@ -1,3 +1,5 @@
+import webbrowser
+
 from flask import Flask, jsonify, render_template, request
 
 app = Flask(__name__)
@@ -49,4 +51,6 @@ def decode():
 
 
 if __name__ == '__main__':
+    # Mở trình duyệt tự động khi chạy ứng dụng
+    webbrowser.open('http://localhost:5000')
     app.run(debug=True)
